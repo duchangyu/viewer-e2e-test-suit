@@ -29,7 +29,10 @@ exports.config = {
 	},
 
 	getPageTimeout:  100000, //100s , timeout_in_millis
-	allScriptsTimeout: 100000  //timeout_in_millis
+	allScriptsTimeout: 100000,  //timeout_in_millis
+	jasmineNodeOpts: {
+		defaultTimeoutInterval: 100000  //timeout_in_millis
+	}
 	
 	
 

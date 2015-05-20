@@ -60,8 +60,9 @@ describe('ng-gallyer viewer sample end to end test', function(){
 
 		expect(modelFilter).toBeDefined();
 		//modelFilter.sendKeys('box');
+		//expect(models.first()).toBeDefined();
 
-		//expect(models.first().getText().toContain('box'));
+		//expect(models.first().getText()).toContain('box');
 
 	});
 
