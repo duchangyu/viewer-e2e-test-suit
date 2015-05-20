@@ -8,6 +8,9 @@ describe('ng-gallyer viewer sample end to end test', function(){
 	// var latestResult = element(by.binding('latest'));
 	// var history = element.all(by.repeater('result in memory'));
 
+	var models = element.all(by.repeater('model in models'));
+	var modelFilter = element(by.model('modelsFilterValue'));
+
 	// function add(a,b){
 
 	// }
@@ -25,7 +28,8 @@ describe('ng-gallyer viewer sample end to end test', function(){
 	      browserLogs.forEach(function(browserLog) {
 	        var message = JSON.parse(browserLog.message).message;
 	        if (message.method == 'Network.responseReceived') {
-	          console.log(message);
+	          //uncomment to show the network log
+	          //console.log(message);
 	        }
 	      });
 	    });
@@ -45,6 +49,22 @@ describe('ng-gallyer viewer sample end to end test', function(){
 		expect(browser.getTitle()).toEqual('View & Data Gallery');
 	});
 
+	it('should have some models',function(){
+
+		expect(models).toBeDefined();
+		expect(models.count()).toBeGreaterThan(0);
+		
+	});
+
+	it('should filter model by name, sample model name = box', function(){
+
+		expect(modelFilter).toBeDefined();
+		//modelFilter.sendKeys('box');
+
+		//expect(models.first().getText().toContain('box'));
+
+	});
+
 	// it('should fail when the console has errors - FAILURE EXPECTED', function() {
 	// 	browser.executeScript(function() {console.error('error from test')});
 	// });
@@ -52,5 +72,14 @@ describe('ng-gallyer viewer sample end to end test', function(){
 	// it('should pass when the console has non-error logs', function() {
 	// 	browser.executeScript(function() {console.log('hi!')});
 	// })
+
+
+	// it('should have left navigator bar', function(){
+
+	// 	var leftNavigator = element.all(by.);
+
+	// });
+
+
 
 });

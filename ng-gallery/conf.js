@@ -26,7 +26,10 @@ exports.config = {
 			performance: 'ALL',
 			browser: 'ALL'
 		}
-	}
+	},
+
+	getPageTimeout:  100000, //100s , timeout_in_millis
+	allScriptsTimeout: 100000  //timeout_in_millis
 	
 	
 
