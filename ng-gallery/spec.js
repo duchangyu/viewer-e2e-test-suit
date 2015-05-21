@@ -86,7 +86,7 @@ describe('ng-gallyer home page', function(){
 		// 	});
 		// });
 	});
-	
+
 	// it('should fail when the console has errors - FAILURE EXPECTED', function() {
 	// 	browser.executeScript(function() {console.error('error from test')});
 	// });
@@ -105,3 +105,10 @@ describe('ng-gallyer home page', function(){
 
 
 });
+
+
+
+
+
+
+
