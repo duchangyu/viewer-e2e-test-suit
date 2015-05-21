@@ -1,15 +1,10 @@
 //spec.js
 
-describe('ng-gallyer viewer sample end to end test', function(){
+describe('ng-gallyer home page', function(){
 
-	// var firstNumber = element(by.model('first'));
-	// var secondNumber = element(by.model('second'));
-	// var goButton = element(by.id('gobutton'));
-	// var latestResult = element(by.binding('latest'));
-	// var history = element.all(by.repeater('result in memory'));
 
 	var models = element.all(by.repeater('model in models'));
-	var modelFilter = element(by.model('modelsFilterValue'));
+	var modelFilter = element(by.className('form-control ng-pristine ng-valid ng-touched'));
 
 	// function add(a,b){
 
@@ -44,28 +39,54 @@ describe('ng-gallyer viewer sample end to end test', function(){
 
   	});
 
-	it('should have a title',function(){
+	xit('should have a title',function(){
 		
 		expect(browser.getTitle()).toEqual('View & Data Gallery');
 	});
 
-	it('should have some models',function(){
+	xit('should have some models',function(){
 
 		expect(models).toBeDefined();
 		expect(models.count()).toBeGreaterThan(0);
 		
 	});
 
-	it('should filter model by name, sample model name = box', function(){
+	xit('should filter model by name, sample model name = box', function(){
 
-		expect(modelFilter).toBeDefined();
-		//modelFilter.sendKeys('box');
-		//expect(models.first()).toBeDefined();
+		// expect(modelFilter).toBeDefined();
+		// modelFilter.sendKeys('box');
+		// expect(models.first()).toBeDefined();
 
-		//expect(models.first().getText()).toContain('box');
+		// expect(models.first().getText()).toContain('box');
 
 	});
 
+	it('should open model in viewer', function(){
+
+		var showViewerButton = element(by.linkText('Show in viewer'));
+		showViewerButton.click();
+
+		expect(browser.getLocationAbsUrl())
+			.toContain('/viewer?id=');
+
+
+		// models.each(function(item,index){
+		// 	item.getText().then(function(text){
+
+		// 		if (text.indexOf('Engine') > 0) {
+		// 			// var showViewerButton = element(by.cssContainingText('.btn .btn-primary','Show in viewer'));
+		// 			// showViewerButton.click();
+
+		// 			// expect(browser.getLocationAbsUrl())
+		// 			// 	.toBe('http://viewer.autodesk.io/node/ng-gallery/#/viewer?id=54464d43af600b5c0a87254b');
+
+		// 			//return;
+		// 		}
+		// 		console.log(index, text);
+		// 	});
+		// });
+	});
+	
 	// it('should fail when the console has errors - FAILURE EXPECTED', function() {
 	// 	browser.executeScript(function() {console.error('error from test')});
 	// });
