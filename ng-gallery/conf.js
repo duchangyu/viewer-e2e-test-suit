@@ -45,6 +45,11 @@ exports.config = {
 	
 
 	onPrepare: function() {
+
+			//http://www.blaiseliu.com/protractor-error-element-is-not-clickable-at-point-xx-xx/
+			//enlarge the browser window to advoid unclickable 
+			browser.manage().window().setSize(1600, 1000);
+
       // Add a screenshot reporter and store screenshots to `/tmp/screnshots`: 
       jasmine.getEnv().addReporter(new HtmlReporter({
          baseDirectory: '/tmp/screenshots'
