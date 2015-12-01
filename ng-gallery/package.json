@@ -1,0 +1,15 @@
+{
+  "name": "ng-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "conf.js",
+  "dependencies": {
+    "protractor-html-screenshot-reporter": "0.0.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "protractor conf.js"
+  },
+  "author": "Changyu Du <duchangyu@gmail.com> (duchangyu.github.io)",
+  "license": "ISC"
+}

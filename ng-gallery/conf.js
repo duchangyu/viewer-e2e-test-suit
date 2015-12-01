@@ -1,4 +1,7 @@
 // conf.js
+
+var HtmlReporter = require('protractor-html-screenshot-reporter');
+
 exports.config = {
 
 	directConnect: true,
@@ -35,8 +38,15 @@ exports.config = {
 	allScriptsTimeout: 100000,  //timeout_in_millis
 	jasmineNodeOpts: {
 		defaultTimeoutInterval: 100000  //timeout_in_millis
-	}
+	},
 	
 	
+
+	onPrepare: function() {
+      // Add a screenshot reporter and store screenshots to `/tmp/screnshots`: 
+      jasmine.getEnv().addReporter(new HtmlReporter({
+         baseDirectory: '/tmp/screenshots'
+      }));
+   	}
 
 }

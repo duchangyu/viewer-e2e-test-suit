@@ -12,7 +12,7 @@ describe('ng-gallyer home page', function(){
 
 	beforeEach(function(){
 
-		browser.get('http://viewer.autodesk.io/node/ng-gallery');
+		browser.get('http://gallery.autodesk.io/');
 
 	});
 
@@ -39,19 +39,36 @@ describe('ng-gallyer home page', function(){
 
   	});
 
-	xit('should have a title',function(){
+	it('should have a title',function(){
 		
 		expect(browser.getTitle()).toEqual('View & Data Gallery');
 	});
 
-	xit('should have some models',function(){
+	it('should have some models',function(){
 
 		expect(models).toBeDefined();
 		expect(models.count()).toBeGreaterThan(0);
 		
 	});
 
-	xit('should filter model by name, sample model name = box', function(){
+	it('should filter model by name, sample model name = engine', function(){
+
+		var btnId = "btn-load-560c6c57611ca14810e1b2bf";
+
+	  browser.wait(until.elementLocated(
+	    By.id(btnId)), 30 * 1000).then(function(element) {
+
+	    var input = browser.findElement(By.id('input-home-search'));
+
+	    input.sendKeys('engine');
+
+	    browser.sleep(1000);
+
+	    element.click();
+
+	    browser.wait(until.titleIs('Gallery - Engine'), 30 * 1000).then(
+	      onModelOpened);
+	  });
 
 		// expect(modelFilter).toBeDefined();
 		// modelFilter.sendKeys('box');

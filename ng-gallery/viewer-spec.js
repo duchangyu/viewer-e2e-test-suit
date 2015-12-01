@@ -8,7 +8,7 @@ describe('Engine Model in viewer', function(){
 
 	beforeEach(function(){
 
-		browser.get('http://viewer.autodesk.io/node/ng-gallery/#/viewer?id=54464d43af600b5c0a87254b');
+		browser.get('http://viewer.autodesk.io/node/gallery/#/viewer?id=560c6c57611ca14810e1b2bf');
 
 		
 	});
