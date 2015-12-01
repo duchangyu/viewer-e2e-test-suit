@@ -2,13 +2,9 @@
 
 describe('ng-gallyer home page', function(){
 
+		var models = element.all(by.repeater('model in models'));
+		var modelFilter = element(by.id('input-home-search'));
 
-	var models = element.all(by.repeater('model in models'));
-	var modelFilter = element(by.className('form-control ng-pristine ng-valid ng-touched'));
-
-	// function add(a,b){
-
-	// }
 
 	beforeEach(function(){
 
@@ -42,6 +38,7 @@ describe('ng-gallyer home page', function(){
 	it('should have a title',function(){
 		
 		expect(browser.getTitle()).toEqual('View & Data Gallery');
+
 	});
 
 	it('should have some models',function(){
@@ -53,38 +50,29 @@ describe('ng-gallyer home page', function(){
 
 	it('should filter model by name, sample model name = engine', function(){
 
-		var btnId = "btn-load-560c6c57611ca14810e1b2bf";
 
-	  browser.wait(until.elementLocated(
-	    By.id(btnId)), 30 * 1000).then(function(element) {
 
-	    var input = browser.findElement(By.id('input-home-search'));
+		expect(modelFilter).toBeDefined();
 
-	    input.sendKeys('engine');
+		modelFilter.sendKeys('engine');
 
-	    browser.sleep(1000);
+		models = element.all(by.repeater('model in models'));
+		expect(models.first()).toBeDefined();
 
-	    element.click();
-
-	    browser.wait(until.titleIs('Gallery - Engine'), 30 * 1000).then(
-	      onModelOpened);
-	  });
-
-		// expect(modelFilter).toBeDefined();
-		// modelFilter.sendKeys('box');
-		// expect(models.first()).toBeDefined();
-
-		// expect(models.first().getText()).toContain('box');
+		expect(models.first().getText()).toContain('engine');
 
 	});
 
-	it('should open model in viewer', function(){
+	it('should open engine model in viewer', function(){
 
-		var showViewerButton = element(by.linkText('Show in viewer'));
+		var btnId = "btn-load-560c6c57611ca14810e1b2bf";
+		var viewerUrl = 'viewer?id=560c6c57611ca14810e1b2bf'
+
+		var showViewerButton = element(by.id(btnId));
 		showViewerButton.click();
 
 		expect(browser.getLocationAbsUrl())
-			.toContain('/viewer?id=');
+			.toContain(viewerUrl);
 
 
 		// models.each(function(item,index){

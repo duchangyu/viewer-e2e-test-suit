@@ -13,21 +13,35 @@ describe('Engine Model in viewer', function(){
 		
 	});
 
-	it('should have viewer displayed',function(){
+	it('should have viewer displayed, have built-in toolbars and ADN toolbars',function(){
 		var viewer = element(by.className('adsk-viewing-viewer notouch'));
 		expect(viewer).toBeDefined();
-
-	});
-
-	it('shoud have toolbars',function(){
-
+		//built-in toolbar
 		expect(element(by.id('guiviewer3d-toolbar'))).toBeDefined();
+
+		//ADN gallery toolbar
+		expect(element(by.id('Gallery'))).toBeDefined();
+
 	});
 
-	it('should have ADN customized toolbar',function(){
+	it('should open extension list', function(){
 
-		expect(element(by.id('Autodesk.ADN.Gallery.ControlGroup'))).toBeDefined();
-	})
+		  //Locate Extension Manager control
+  	var btnId = "Autodesk.ADN.Gallery.ExtensionManager.Button.Manage";
+
+  	//displays extensions panel
+  	element(by.id(btnId)).click();
+
+  	
+
+  	expect(element(by.css('extension-item')).toBeDefined());
+
+
+
+
+	});
+
+	
 
 
 

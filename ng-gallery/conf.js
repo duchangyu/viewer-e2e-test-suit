@@ -5,11 +5,13 @@ var HtmlReporter = require('protractor-html-screenshot-reporter');
 exports.config = {
 
 	directConnect: true,
+	//default framework is jasmine
+	framework : 'jasmine',
 
 	seleniumAddress: 'http://localhost:4444/wd/hub',
 	specs: [
-		'spec.js',
-		'viewer-spec.js'
+		'spec.js'
+		//,'viewer-spec.js'
 	],
 	// multiCapabilities : [{
 	// 	browserName : 'firefox'
