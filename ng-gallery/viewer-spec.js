@@ -22,26 +22,15 @@ describe('Engine Model in viewer', function(){
 		//ADN gallery toolbar
 		expect(element(by.id('Gallery'))).toBeDefined();
 
-	});
 
-	it('should open extension list', function(){
-
-		  //Locate Extension Manager control
-  	var btnId = "Autodesk.ADN.Gallery.ExtensionManager.Button.Manage";
-
+		//Locate Extension Manager control
+  	var btnId = 'Autodesk.ADN.Gallery.ExtensionManager.Button.Manage';
   	//displays extensions panel
   	element(by.id(btnId)).click();
 
-  	
-
-  	expect(element(by.css('extension-item')).toBeDefined());
-
-
-
+  	expect(element(by.css('extension-item'))).toBeDefined();
 
 	});
-
-	
 
 
 

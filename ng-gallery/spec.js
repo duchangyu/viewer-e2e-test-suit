@@ -59,7 +59,7 @@ describe('ng-gallyer home page', function(){
 		models = element.all(by.repeater('model in models'));
 		expect(models.first()).toBeDefined();
 
-		expect(models.first().getText()).toContain('engine');
+		expect(models.first().getText()).toContain('Engine');
 
 	});
 
@@ -68,7 +68,12 @@ describe('ng-gallyer home page', function(){
 		var btnId = "btn-load-560c6c57611ca14810e1b2bf";
 		var viewerUrl = 'viewer?id=560c6c57611ca14810e1b2bf'
 
+
+		var EC = protractor.ExpectedConditions;
 		var showViewerButton = element(by.id(btnId));
+		var isClickable = EC.elementToBeClickable(showViewerButton);
+		browser.wait(isClickable, 5000);
+
 		showViewerButton.click();
 
 		expect(browser.getLocationAbsUrl())
