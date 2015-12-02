@@ -5,12 +5,13 @@
 describe('Engine Model in viewer', function(){
 
 
+	browser.get('http://viewer.autodesk.io/node/gallery/#/viewer?id=560c6c57611ca14810e1b2bf');
+
+
 
 	beforeEach(function(){
 
-		browser.get('http://viewer.autodesk.io/node/gallery/#/viewer?id=560c6c57611ca14810e1b2bf');
-
-		
+				
 	});
 
 	it('should have viewer displayed, have built-in toolbars and ADN toolbars',function(){
@@ -23,12 +24,17 @@ describe('Engine Model in viewer', function(){
 		expect(element(by.id('Gallery'))).toBeDefined();
 
 
-		//Locate Extension Manager control
-  	var btnId = 'Autodesk.ADN.Gallery.ExtensionManager.Button.Manage';
-  	//displays extensions panel
-  	element(by.id(btnId)).click();
 
-  	expect(element(by.css('extension-item'))).toBeDefined();
+		// //Locate Extension Manager control
+	 //  	var btnId = 'Autodesk.ADN.Gallery.ExtensionManager.Button.Manage';
+	 //  	var EC = protractor.ExpectedConditions;
+		// var showExtension = element(by.id(btnId));
+		// var isClickable = EC.elementToBeClickable(showExtension);
+		// browser.wait(isClickable, 50 * 1000);
+	 //  	//displays extensions panel
+	 //  	showExtension.click();
+
+	 //  	expect(element(by.css('extension-item'))).toBeDefined();
 
 	});
 

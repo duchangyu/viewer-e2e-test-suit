@@ -6,9 +6,11 @@ describe('ng-gallyer home page', function(){
 		var modelFilter = element(by.id('input-home-search'));
 
 
+	browser.get('http://gallery.autodesk.io/');
+
 	beforeEach(function(){
 
-		browser.get('http://gallery.autodesk.io/');
+		
 
 	});
 
@@ -48,20 +50,20 @@ describe('ng-gallyer home page', function(){
 		
 	});
 
-	it('should filter model by name, sample model name = engine', function(){
+	// it('should filter model by name, sample model name = engine', function(){
 
 
 
-		expect(modelFilter).toBeDefined();
+	// 	expect(modelFilter).toBeDefined();
 
-		modelFilter.sendKeys('engine');
+	// 	modelFilter.sendKeys('engine');
 
-		models = element.all(by.repeater('model in models'));
-		expect(models.first()).toBeDefined();
+	// 	models = element.all(by.repeater('model in models'));
+	// 	expect(models.first()).toBeDefined();
 
-		expect(models.first().getText()).toContain('Engine');
+	// 	expect(models.first().getText()).toContain('Engine');
 
-	});
+	// });
 
 	it('should open engine model in viewer', function(){
 
